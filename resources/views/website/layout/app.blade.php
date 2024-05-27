@@ -52,7 +52,7 @@
                             </ul>
                         </div>
                         <div class="header-logo">
-                            <img src="https://fratelliwines.in/cdn/shop/files/200x60-logo-01_125x.png?v=1648457327" alt="Fratelli">
+                            <img src="{{ url('website/images/Fratelli_Logo_Black.webp') }}" width="150px;" alt="Fratelli">
                         </div>
                         <div class="header-fill">
                             <ul>

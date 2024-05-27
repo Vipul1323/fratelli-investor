@@ -46,7 +46,7 @@ class WebsiteController extends Controller
         foreach($tradeData as $trade){
             $tradeDataArray[] = [
                 $trade->date_on,
-                $trade->open
+                $trade->last
             ];
         }
 

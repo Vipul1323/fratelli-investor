@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('api_logs', function (Blueprint $table) {
             $table->id();
+            $table->string('endpoint');
+            $table->string('method');
+            $table->json('response_body')->nullable();
+            $table->integer('status_code');
+            $table->timestamp('requested_at');
+            $table->timestamp('responded_at')->nullable();
+            $table->string('status')->default('pending');
+            $table->string('error_message')->nullable();
             $table->timestamps();
         });
     }

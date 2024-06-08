@@ -83,7 +83,7 @@
     body, body p {
         line-height: 1.65;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 400;
         font-style: normal;
         font-family: var(--primary-fonts);
         color: var(--content-color);
@@ -92,10 +92,10 @@
         text-transform: inherit;
     }
     @media (max-width: 991.98px) {
-        body, body p {
+        /*body, body p {
             line-height: 24px;
             font-size: 16px;
-        }
+        }*/
     }
     ol, ul {
         list-style: none;
@@ -249,7 +249,7 @@
     }
     @media (max-width: 991px) {
         body .section {
-            padding: 50px 0px 50px 0px;
+            padding: 24px 0px 24px 0px;
         }   
     }
 
@@ -266,31 +266,36 @@
     .no-bottom-padding {
         padding-bottom: 0px !important;
     }
-    @media only screen and (max-width: 575px) {
+    @media (min-width: 991.99px) {
+        .section-border.no-top-padding-border {
+            padding-top: 0px !important;
+        }
+    }
+    @media only screen and (max-width: 575.98px) {
         .hidden-xs {
             display: none;
         }
     }
 
-    @media only screen and (max-width: 767px) and (min-width: 576px) {
+    @media only screen and (max-width: 767.98px) and (min-width: 575.99px) {
         .hidden-sm {
             display: none;
         }
     }
 
-    @media only screen and (max-width: 991px) and (min-width: 768px) {
+    @media only screen and (max-width: 991.98px) and (min-width: 767.99px) {
         .hidden-md {
             display: none;
         }
     }
 
-    @media only screen and (max-width: 1199px) and (min-width: 992px) {
+    @media only screen and (max-width: 1199.98px) and (min-width: 991.99px) {
         .hidden-lg {
             display: none;
         }
     }
 
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (min-width: 1199.99px) {
         .hidden-xl {
             display: none;
         }
@@ -310,13 +315,14 @@
         font-size: 14px;
         font-weight: 500;
         line-height: 100%;
-        padding: 14px 28px;
+        padding: 14.2px 27px;
         text-transform: uppercase;
         letter-spacing: 2px;
         display: inline-block;
         transition: 0.3s;
         cursor: pointer;
         position: relative;
+        border-radius: 0px;
     }
     .btn::before {
         position: absolute;
@@ -385,6 +391,12 @@
             padding: 16px 30px 16px 30px;
         }
     }
+    @media (max-width: 991.98px) {
+        .btn {
+            font-size: 13px;
+            padding: 14px 28px;
+        }
+    }
 /* Button E */
 /* Main Title S */
     .title-sc {
@@ -402,12 +414,8 @@
         position: relative;
     }
     @media only screen and (max-width: 991px) {
-        .main-title {
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
         .title-sc {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
     }
 
@@ -484,32 +492,32 @@
 }
 
 .ad-form-group .ad-input::-webkit-input-placeholder {
-    color: var(--primary-color);
+    color: #323232;
     font-size: 15px;
     font-weight: 300;
     letter-spacing: 1px;
-    opacity: 0.5;
+    opacity: 1;
 } 
 .ad-form-group .ad-input::-moz-placeholder {
-    color: var(--primary-color);
+    color: #323232;
     font-size: 15px;
     font-weight: 300;
     letter-spacing: 1px;
-    opacity: 0.5;
+    opacity: 1;
 }
 .ad-form-group .ad-input:-ms-input-placeholder {
-    color: var(--primary-color);
+    color: #323232;
     font-size: 15px;
     font-weight: 300;
     letter-spacing: 1px;
-    opacity: 0.5;
+    opacity: 1;
 } 
 .ad-form-group .ad-input:-moz-placeholder {
-    color: var(--primary-color);
+    color: #323232;
     font-size: 15px;
     font-weight: 300;
     letter-spacing: 1px;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .ad-form-group .ad-input.error {

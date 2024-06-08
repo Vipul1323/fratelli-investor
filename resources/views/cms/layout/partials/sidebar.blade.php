@@ -102,14 +102,14 @@
                                         </a>
                                     </li>
 
-                                    <li class="menu-item {{ Request::segment(3) == 'about-us' ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                                    {{-- <li class="menu-item {{ Request::segment(3) == 'about-us' ? 'menu-item-active' : '' }}" aria-haspopup="true">
                                         <a data-name="settings-about-us" title="Settings" href="{{ route('admin.settings-about-us') }}" class="menu-link">
                                             <i class="menu-bullet menu-bullet-line">
                                                 <span></span>
                                             </i>
                                             <span class="menu-text">About Us</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 @endif
                             </ul>
                         </div>

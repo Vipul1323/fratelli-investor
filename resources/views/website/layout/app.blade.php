@@ -20,6 +20,32 @@
     <link rel="stylesheet" href="{{ url('website/css/main.css') }}">
     <!-- Styling CSS E -->
 
+    <style>
+        .mobile {
+            display: none !important;
+        }
+
+        /* Media query for desktop screens (1024px and above) */
+        @media (min-width: 1024px) {
+            .desktop {
+                display: block !important;
+            }
+            .mobile {
+                display: none !important;
+            }
+        }
+
+        /* Media query for mobile and tablet screens (less than 1024px) */
+        @media (max-width: 1023px) {
+            .desktop {
+                display: none !important;
+            }
+            .mobile {
+                display: block !important;
+            }
+        }
+    </style>
+
     <!-- Font Awesome S -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Font Awesome E -->
@@ -32,10 +58,18 @@
             <header class="header-main">
                 <div class="container-fluid">
                     <div class="header-wrapper">
-                        <div class="header-fill">
-                            <ul>
-                                <li class="active">
-                                    <a href="javascript:void(0)">Home</a>
+                        <div class="header-fill hidden-xl">
+                            <div class="toggle-icn" id="navbar-toggle">
+                                <svg class="Icon Icon--nav" role="presentation" width="20px" viewBox="0 0 20 14"><path d="M0 14v-1h20v1H0zm0-7.5h20v1H0v-1zM0 0h20v1H0V0z" fill="currentColor"></path></svg>
+                            </div>
+                        </div>
+                        <div class="header-fill left-fill" id="nav-left">
+                            <div class="close-div hidden-xl">
+                                <div class="btn-close" id="nav-close-btn"></div>
+                            </div>
+                            <ul class="nav-ul">
+                                <li>
+                                    <a href="https://fratelliwines.in/">Home</a>
                                 </li>
                                 <li>
                                     <a href="https://fratelliwines.in/blogs/our-story">Story</a>
@@ -46,27 +80,64 @@
                                 <li>
                                     <a href="https://estate.fratelliwines.in/">Estate</a>
                                 </li>
-                                <li>
-                                    <a href="https://fratelliwines.in/blogs/our-journal">Journal</a>
+                                <li class="active">
+                                    <a href="{{ url('/') }}">Investor</a>
                                 </li>
-                            </ul>
-                        </div>
-                        <div class="header-logo">
-                            <img src="{{ url('website/images/Fratelli_Logo_Black.webp') }}" width="150px;" alt="Fratelli">
-                        </div>
-                        <div class="header-fill">
-                            <ul>
-                                <li>
+                                <li class="hidden-xl">
                                     <a href="https://fratelliwines.in/account">Account</a>
                                 </li>
-                                <li>
-                                    <a href="https://fratelliwines.in/search">Search</a>
+                            </ul>
+                            <div class="nav-ft hidden-xl">
+                                <ul class="social-links">
+                                    <li>
+                                        <a href="https://www.instagram.com/fratelliwines/" target="_blank">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/tiltwine/" target="_blank">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/Fratelli.Vineyard" target="_blank">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/channel/UClkkBMyG8o8VOMBPhjUUahg" target="_blank">
+                                            <i class="fa-brands fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="https://fratelliwines.in/" class="header-logo">
+                            <img src="{{ url('website/images/Fratelli_Logo_Black.webp') }}" width="150px;" alt="Fratelli">
+                        </a>
+                        <div class="header-fill right-fill">
+                            <ul>
+                                <li class="hidden-lg hidden-md hidden-sm hidden-xs">
+                                    <a href="https://fratelliwines.in/account">
+                                        <span>Account</span>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="https://fratelliwines.in/cart">Cart (0)</a>
+                                    <a href="https://fratelliwines.in/search">
+                                        <span class="hidden-lg hidden-md hidden-sm hidden-xs">Search</span>
+                                        <span class="hidden-xl"><svg class="Icon Icon--search" width="18px" role="presentation" viewBox="0 0 18 17"><g transform="translate(1 1)" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M16 16l-5.0752-5.0752"></path><circle cx="6.4" cy="6.4" r="6.4"></circle></g></svg></span>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="https://fratelliwines.in/pages/contact">Contact</a>
+                                    <a href="https://fratelliwines.in/cart">
+                                        <span class="hidden-lg hidden-md hidden-sm hidden-xs">Cart (0)</span>
+                                        <span class="hidden-xl"><svg class="Icon Icon--cart" width="17px" role="presentation" viewBox="0 0 17 20"><path d="M0 20V4.995l1 .006v.015l4-.002V4c0-2.484 1.274-4 3.5-4C10.518 0 12 1.48 12 4v1.012l5-.003v.985H1V19h15V6.005h1V20H0zM11 4.49C11 2.267 10.507 1 8.5 1 6.5 1 6 2.27 6 4.49V5l5-.002V4.49z" fill="currentColor"></path></svg></span>
+                                    </a>
+                                </li>
+                                <li class="hidden-lg hidden-md hidden-sm hidden-xs">
+                                    <a href="https://fratelliwines.in/pages/contact">
+                                        <span>Contact</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -147,15 +218,19 @@
                         <div class="ft-block ft-block-newsletter">
                             <h3 class="ft-title">Newsletter</h3>
                             <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
-                            <form action="" class="ad-form">
-                                <div class="ad-form-group">
-                                    <input type="text" placeholder="Enter your email address" class="ad-input">
+                            <form id="newletter-form" class="ad-form">
+                                <div class="ad-form-group" id="main-body">
+                                    <input type="email" id="newsletter_email" placeholder="Enter your email address" class="ad-input">
+
                                 </div>
                                 <div class="btn-sc">
-                                    <button class="btn btn-primary">Subscribe</button>
+                                    <button id="submit-form" type="submit" class="btn btn-primary">Subscribe</button>
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    <div class="ft-copyright">
+                        <a class="ft-copyright-link" href="https://fratelliwines.in/">© Fratelli Wines</a>
                     </div>
                 </div>
             </footer>
@@ -170,7 +245,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <p>{!! $settings->description !!}</p>
+                        <p>As the sun set on a warm afternoon in 2006, the seeds of a new dream bloomed to life - <b>Fratelli</b>. Brought together by love and driven forward by passion, <b>Fratelli</b> is symbolic of a vision manifested by three families who aspired to tell stories through the art of winemaking.</p>
+                        <p>Crowned <b>Fratelli</b>, which means ‘brothers’ in Italian, the collaboration was birthed as the Secci brothers from Italy joined hands with the Sekhri and Mohite-Patil brothers from India.</p>
+                        <p>
+                            <img src="{{ url('website/images/home-page_1500x.webp') }}" alt="">
+                        </p>
+                        <p>Committed to bringing new life to wine culture through a blend of Indian terroir and Italian craft, <b>Fratelli's</b> vineyards have become the birthplace of award winning varietals.</p>
+                        <p>Under the guiding hand of Piero Masi, a master winemaker from Tuscany, the estate has been developing an eclectic and select range of wines since 2007. The house of <b>Fratelli</b> continues to thrive, forging bonds through every glass of exquisite wine, turning friends into family.</p>
                     </div>
                 </div>
             </div>
@@ -182,11 +263,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content no-footer">
                     <div class="modal-header">
-                        <h6 class="modal-title" id="folderName"></h6>
+                        <h6 class="modal-title folderName"></h6>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="accordion-main" id="subFolderBody">
+                        <div class="accordion-main subFolderBody">
 
                         </div>
                     </div>
@@ -194,6 +275,38 @@
             </div>
         </div>
         <!-- Modal - Media E -->
+
+        <!-- Offcanvas - Who we are S -->
+        <div class="offcanvas offcanvas-bottom offcanvas-lg" tabindex="-1" id="WhoWeAreOffoffcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">{{ $settings->title }}</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+                <p>As the sun set on a warm afternoon in 2006, the seeds of a new dream bloomed to life - <b>Fratelli</b>. Brought together by love and driven forward by passion, <b>Fratelli</b> is symbolic of a vision manifested by three families who aspired to tell stories through the art of winemaking.</p>
+                <p>Crowned <b>Fratelli</b>, which means ‘brothers’ in Italian, the collaboration was birthed as the Secci brothers from Italy joined hands with the Sekhri and Mohite-Patil brothers from India.</p>
+                <p>
+                    <img src="{{ url('website/images/home-page_1500x.webp') }}" alt="">
+                </p>
+                <p>Committed to bringing new life to wine culture through a blend of Indian terroir and Italian craft, <b>Fratelli's</b> vineyards have become the birthplace of award winning varietals.</p>
+                <p>Under the guiding hand of Piero Masi, a master winemaker from Tuscany, the estate has been developing an eclectic and select range of wines since 2007. The house of <b>Fratelli</b> continues to thrive, forging bonds through every glass of exquisite wine, turning friends into family.</p>
+            </div>
+        </div>
+        <!-- Offcanvas - Who we are E -->
+
+        <!-- Offcanvas - Media S -->
+        <div class="offcanvas offcanvas-bottom offcanvas-lg" tabindex="-1" id="MediaoffcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title folderName" id="offcanvasBottomLabel">Media</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+                <div class="accordion-main subFolderBody">
+
+                </div>
+            </div>
+        </div>
+        <!-- Offcanvas - Media E -->
 
         <script src="{{ url('website/js/custom.js') }}"></script>
         <script>
@@ -203,9 +316,35 @@
                     var folder = $(this).attr('folder');
 
                     $.get('{{ url("get-files/") }}/'+folder, function(response){
-                        $('#folderName').html(response.folderName);
-                        $('#subFolderBody').html(response.files);
-                        $('#mediaModal').modal('show');
+                        $('.folderName').html(response.folderName);
+                        $('.subFolderBody').html(response.files);
+                        // $('#mediaModal').modal('show');
+                    });
+                });
+
+                $('#newletter-form').submit(function(e){
+                    e.preventDefault();
+
+                    var email = $('#newsletter_email').val();
+
+                    if(email == ""){
+                        $('#main-body').append('<span id="newsletter-message" style="color:red;">Please enter your email address</span>');
+                        setTimeout(function(){
+                            $('#newsletter-message').remove();
+                        }, 5000);
+                        return;
+                    }
+
+                    $.post('{{ route("send-newsletter") }}', {
+                        email: email,
+                        _token: "{{ csrf_token() }}"
+                    }, function(responser){
+                        $('#main-body').append('<span id="newsletter-message">Subscribed successfully</span>');
+                        $('#newletter-form')[0].reset();
+
+                        setTimeout(function(){
+                            $('#newsletter-message').remove();
+                        }, 5000);
                     });
                 })
             });

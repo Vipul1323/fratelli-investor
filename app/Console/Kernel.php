@@ -4,6 +4,8 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use GuzzleHttp\Client;
+use App\Models\TradeData;
 use App\Models\SiteSettings;
 use App\Models\ApiLog;
 use Log;
@@ -18,13 +20,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule){
 
-        $settings = SiteSettings::select('marketstack_key', 'marketstack_endpoint', 'api_call_per_minute')->first();
-        $cronInterval = $settings->api_call_per_minute;
+        $schedule->call(function(){
+            $stockSymbol = "TINNATFL.XBOM";
+            //$stockSymbol = "AAPL";
+            ApiLog::makeApiCall($stockSymbol);
+
+        })->everyMinute();
 
         $schedule->call(function(){
-            ApiLog::makeApiCall();
+            $stockSymbol = "BSE.XNSE";
+            ApiLog::makeApiCall($stockSymbol);
+
         })->everyMinute();
-        // })->cron($cronInterval.' * * * *');
     }
 
     /**

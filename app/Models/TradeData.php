@@ -16,12 +16,7 @@ class TradeData extends Model{
         'high',
         'low',
         'close',
-        'volume',
-        'adj_open',
-        'adj_high',
-        'adj_low',
-        'adj_close',
-        'adj_volume'
+        'last'
     ];
 
 }

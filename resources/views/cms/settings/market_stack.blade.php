@@ -23,7 +23,7 @@
                         {{ Form::text('marketstack_endpoint', empty($settings->marketstack_endpoint) ? '' : $settings->marketstack_endpoint, array('id'=>'marketstack_endpoint','class' => 'form-control','placeholder'=>'API Endpoint')) }}
                     </div>
                     <div class="col-lg-8 mt-5">
-                        {!! Form::label('api_call_per_minute', 'API Call Interval (in minutes)') !!}
+                        {!! Form::label('api_call_per_minute', 'API Call Per Minute') !!}
                         {{ Form::text('api_call_per_minute', empty($settings->api_call_per_minute) ? '' : $settings->api_call_per_minute, array('id'=>'api_call_per_minute','class' => 'form-control','placeholder'=>'API Call Per Minute')) }}
                     </div>
                 </div>

@@ -82,3 +82,5 @@ Route::get('/', 'WebsiteController@index')->name('/');
 Route::get('folders', 'WebsiteController@showAllFolders');
 Route::get('/get-files/{folder}', 'WebsiteController@getSubFolderFiles');
 Route::post('stock-data', 'WebsiteController@getStockData')->name('stock-data');
+Route::get('get-stock-sticker', 'WebsiteController@getStockSticker')->name('get-stock-sticker');
+Route::post('send-newsletter', 'WebsiteController@sendNewsletter')->name('send-newsletter');

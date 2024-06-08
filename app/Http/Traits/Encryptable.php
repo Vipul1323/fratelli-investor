@@ -26,7 +26,7 @@ trait Encryptable
 
             return $thisEncrypter->decrypt($key);
         } catch (\Exception $e) {
-            Log::info("decryptIt => ".$e->getMessage());
+            // Log::info("decryptIt => ".$e->getMessage());
         }
     }
 
@@ -44,7 +44,7 @@ trait Encryptable
 
             return $thisEncrypter->encrypt($key);
         } catch (\Exception $e) {
-            Log::info("encryptIt => ".$e->getMessage());
+            // Log::info("encryptIt => ".$e->getMessage());
         }
     }
 
@@ -65,7 +65,7 @@ trait Encryptable
 
             return $value;
         } catch (\Exception $e) {
-            Log::info("getAttribute => ".$e->getMessage());
+            // Log::info("getAttribute => ".$e->getMessage());
         }
     }
 
@@ -85,7 +85,7 @@ trait Encryptable
 
             return parent::setAttribute($key, $value);
         } catch (\Exception $e) {
-            Log::info("setAttribute => ".$e->getMessage());
+            // Log::info("setAttribute => ".$e->getMessage());
         }
     }
 

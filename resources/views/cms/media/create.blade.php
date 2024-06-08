@@ -39,6 +39,7 @@
                             <div class="col-lg-12 form-group">
                                 {!! Form::label('filename', 'Files Name') !!}
                                 {!! Form::text('filename', "", ['class' => 'form-control','placeholder' => 'Enter file Name' ]) !!}
+                                <span id="select_folder_message">Please select a folder first</span>
                             </div>
 
                             <div class="col-lg-12 form-group">
@@ -48,9 +49,6 @@
                         </div>
 
                     </div>
-                </div>
-
-                <div class="form-group row">
                 </div>
             </div>
             <div class="card-footer">
@@ -65,6 +63,10 @@
     <script src="{{ url('admin/plugins/custom/jstree/jstree.bundle.js') }}"></script>
     <script>
         $(document).ready(function(){
+
+            $("#filename").prop("disabled", true);
+            $("#media_file").prop("disabled", true);
+
             $("#kt_tree_1").jstree({
                 "core": {
                     "themes": {
@@ -84,6 +86,10 @@
 
             $('#kt_tree_1').on('select_node.jstree', function(e, data) {
                 $('#folder_id').val(data.node.id)
+                $("#filename").prop("disabled", false);
+                $("#media_file").prop("disabled", false);
+
+                $('#select_folder_message').hide();
             });
 
         });

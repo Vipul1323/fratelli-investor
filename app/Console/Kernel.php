@@ -19,19 +19,23 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected function schedule(Schedule $schedule){
+        Log::channel('api')->info("============================= Schedule Run Triggered =========================");
+
+        // $schedule->call(function(){
+        //     ApiLog::getUpstocksToken();
+        // })->dailyAt('8:30');
+
+        // exit;
+
 
         $schedule->call(function(){
-            $stockSymbol = "TINNATFL.XBOM";
-            //$stockSymbol = "AAPL";
-            ApiLog::makeApiCall($stockSymbol);
+            ApiLog::getTinnaStockDetails();
 
-        })->everyMinute();
+        })->weekdays()->between('8:45', '23:40')->everyMinute();
 
         $schedule->call(function(){
-            $stockSymbol = "BSE.XNSE";
-            ApiLog::makeApiCall($stockSymbol);
-
-        })->everyMinute();
+            ApiLog::getBseStockDetails();
+        })->weekdays()->between('8:45', '23:40')->everyMinute();
     }
 
     /**

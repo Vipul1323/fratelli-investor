@@ -10,6 +10,31 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('store-token', function(){
+    $siteSettings = App\Models\SiteSettings::first();
+    $token = "eyJ0eXAiOiJKV1QiLCJrZXlfaWQiOiJza192MS4wIiwiYWxnIjoiSFMyNTYifQ.eyJzdWIiOiI3U0FENEYiLCJqdGkiOiI2NjZkNTdkYjY2N2RkNTRiYWRlOWM1ZDgiLCJpc011bHRpQ2xpZW50IjpmYWxzZSwiaWF0IjoxNzE4NDQxOTQ3LCJpc3MiOiJ1ZGFwaS1nYXRld2F5LXNlcnZpY2UiLCJleHAiOjE3MTg0ODg4MDB9.nXYhLBv-nf2XvnmNvH5hf9CJatVxg32Z1pmDHu1o87k";
+    $siteSettings->upstocks_token = $token;
+    $siteSettings->save();
+});
+
+Route::get('load-history', function(){
+    App\Models\ApiLog::getTinnaStockHistoryData();
+
+    echo "123";
+    exit;
+});
+
+
+Route::get('artisan', function(){
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+
+
+    //Artisan::call('schedule:run');
+});
+
 
 Route::namespace('Admin')->group(function () {
     /*Guest Access*/
@@ -84,3 +109,4 @@ Route::get('/get-files/{folder}', 'WebsiteController@getSubFolderFiles');
 Route::post('stock-data', 'WebsiteController@getStockData')->name('stock-data');
 Route::get('get-stock-sticker', 'WebsiteController@getStockSticker')->name('get-stock-sticker');
 Route::post('send-newsletter', 'WebsiteController@sendNewsletter')->name('send-newsletter');
+Route::get('get-api-code', 'WebsiteController@storeApiCode');

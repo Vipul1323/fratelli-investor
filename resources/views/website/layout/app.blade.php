@@ -258,6 +258,120 @@
         </div>
         <!-- Modal - Who we are E -->
 
+        <!-- Modal - Board Composition S -->
+        <div class="modal fade boardCompositionModal" id="boardCompositionModal">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content no-footer">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Board Composition</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="profile-main">
+                            <div class="pro-list">
+                                <div class="pro-img">
+                                    <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Gaurav Sekhri">
+                                </div>
+                                <div class="pro-content">
+                                    <span class="title">Mr. Gaurav Sekhri</span>
+                                    <span class="info">Chairman and Managing Director</span>
+                                    <p>Mr. Gaurav Sekhri has done his Bachelor of Business Administration(BBA) from Richmond College, London(UK). He is promotor director of the company "Tinna Trade Ltd" and currently heading the TINNA group as the Managing Director. Mr. Gaurav Sekhri has experience of over 22 years in Trading business. He possesses key expertise in the business of commodity trading and other business verticals, including cargo handling operations & warehousing. He has chaired 'Sunflower Seed Promotion Council of SEA (Solvent Extractors Association) of India' & 'SEA Bio Diesel Promotion Council'. He has been member of with various reputed associations- The Soybean Processors Association of India' (SOPA), 'Confederation of Indian Industry (CII) & National Committee on Agriculture', 'National Committee a Bio Fuels', Confederation of Indian Industry (CII), National Committee on Agriculture.</p>
+                                </div>
+                            </div>
+                            <div class="pro-list">
+                                <div class="pro-img">
+                                    <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Adhiraj Amar Sarin">
+                                </div>
+                                <div class="pro-content">
+                                    <span class="title">Mr. Adhiraj Amar Sarin</span>
+                                    <span class="info">Independent Director</span>
+                                    <p>Mr. Adhiraj Sarin has done B. Tech, Electrical and Electronics Engineering from IIT Kanpur. He has vast experience in commodity business. He has been Managing Director in 'Bunge India', Specialty Engineering Company 'Tube Investments Of India', 'Bombay Dyeing Textiles' & 'Hindustan Lever Limited'. He was CEO of Louis Dreyfus Commodities India. He is currently working as Corporate advisor with 'Master & Little'.</p>
+                                </div>
+                            </div>
+                            <div class="pro-list">
+                                <div class="pro-img">
+                                    <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Ashish Madan">
+                                </div>
+                                <div class="pro-content">
+                                    <span class="title">Mr. Ashish Madan</span>
+                                    <span class="info">Independent Director</span>
+                                    <p>Mr. Ashish Madan has done B.A. Eco (H), MFC, (University of Delhi). He has about 20 years' experience in trade finance. He is member of Managing Committee of Adam Smith Associates Pvt. Ltd. He has previously worked with Esanda Finance (ANZ Banking Group), and Batlivala & Karani.</p>
+                                </div>
+                            </div>
+                            <div class="pro-list">
+                                <div class="pro-img">
+                                    <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="MS. Sanvali Kaushik">
+                                </div>
+                                <div class="pro-content">
+                                    <span class="title">MS. Sanvali Kaushik</span>
+                                    <span class="info">Independent Director</span>
+                                    <p>Ms. Sanvali Kaushik is a post graduate in marketing and financial management and has more than 20 years of experience in commodity physical trade and derivatives in India. Ms.Kaushik was the CEO of NCDEX Spot Exchange Ltd. She has been part of the FICCI study group of Terminal Markets of USA and studied the US models of agri business and capacity building by USAID. She has also been part of the various committees for commodity grading, assaying and Forward Markets Commission and the Government of India on various commodity derivates related issues. She has also been part of the Technical Group that led the FCI and Government of India to hedge for the first time on CBOT.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal - Board Composition E -->
+
+        <!-- Modal - Management Profile S -->
+        <div class="modal fade managementProfileModal" id="managementProfileModal">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content no-footer">
+                    <div class="modal-header">
+                        <h6 class="modal-title">Management Profile</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="profile-main">
+                            <div class="pro-list">
+                                <div class="pro-img">
+                                    <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Gaurav Sekhri">
+                                </div>
+                                <div class="pro-content">
+                                    <span class="title">Mr. Gaurav Sekhri</span>
+                                    <span class="info">Chairman and Managing Director</span>
+                                    <p>Mr. Gaurav Sekhri has done his Bachelor of Business Administration(BBA) from Richmond College, London(UK). He is promotor director of the company "Tinna Trade Ltd" and currently heading the TINNA group as the Managing Director. Mr. Gaurav Sekhri has experience of over 22 years in Trading business. He possesses key expertise in the business of commodity trading and other business verticals, including cargo handling operations & warehousing. He has chaired 'Sunflower Seed Promotion Council of SEA (Solvent Extractors Association) of India' & 'SEA Bio Diesel Promotion Council'. He has been member of with various reputed associations- The Soybean Processors Association of India' (SOPA), 'Confederation of Indian Industry (CII) & National Committee on Agriculture', 'National Committee a Bio Fuels', Confederation of Indian Industry (CII), National Committee on Agriculture.</p>
+                                </div>
+                            </div>
+                            <div class="pro-list">
+                                <div class="pro-img">
+                                    <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Adhiraj Amar Sarin">
+                                </div>
+                                <div class="pro-content">
+                                    <span class="title">Mr. Adhiraj Amar Sarin</span>
+                                    <span class="info">Independent Director</span>
+                                    <p>Mr. Adhiraj Sarin has done B. Tech, Electrical and Electronics Engineering from IIT Kanpur. He has vast experience in commodity business. He has been Managing Director in 'Bunge India', Specialty Engineering Company 'Tube Investments Of India', 'Bombay Dyeing Textiles' & 'Hindustan Lever Limited'. He was CEO of Louis Dreyfus Commodities India. He is currently working as Corporate advisor with 'Master & Little'.</p>
+                                </div>
+                            </div>
+                            <div class="pro-list">
+                                <div class="pro-img">
+                                    <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Ashish Madan">
+                                </div>
+                                <div class="pro-content">
+                                    <span class="title">Mr. Ashish Madan</span>
+                                    <span class="info">Independent Director</span>
+                                    <p>Mr. Ashish Madan has done B.A. Eco (H), MFC, (University of Delhi). He has about 20 years' experience in trade finance. He is member of Managing Committee of Adam Smith Associates Pvt. Ltd. He has previously worked with Esanda Finance (ANZ Banking Group), and Batlivala & Karani.</p>
+                                </div>
+                            </div>
+                            <div class="pro-list">
+                                <div class="pro-img">
+                                    <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="MS. Sanvali Kaushik">
+                                </div>
+                                <div class="pro-content">
+                                    <span class="title">MS. Sanvali Kaushik</span>
+                                    <span class="info">Independent Director</span>
+                                    <p>Ms. Sanvali Kaushik is a post graduate in marketing and financial management and has more than 20 years of experience in commodity physical trade and derivatives in India. Ms.Kaushik was the CEO of NCDEX Spot Exchange Ltd. She has been part of the FICCI study group of Terminal Markets of USA and studied the US models of agri business and capacity building by USAID. She has also been part of the various committees for commodity grading, assaying and Forward Markets Commission and the Government of India on various commodity derivates related issues. She has also been part of the Technical Group that led the FCI and Government of India to hedge for the first time on CBOT.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal - Management Profile E -->
+
         <!-- Modal - Media S -->
         <div class="modal fade mediaModal" id="mediaModal">
             <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -293,6 +407,112 @@
             </div>
         </div>
         <!-- Offcanvas - Who we are E -->
+
+        <!-- Offcanvas - Board Composition S -->
+        <div class="offcanvas offcanvas-bottom offcanvas-lg" tabindex="-1" id="boardCompositionWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Board Composition</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+                <div class="profile-main">
+                    <div class="pro-list">
+                        <div class="pro-img">
+                            <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Gaurav Sekhri">
+                        </div>
+                        <div class="pro-content">
+                            <span class="title">Mr. Gaurav Sekhri</span>
+                            <span class="info">Chairman and Managing Director</span>
+                            <p>Mr. Gaurav Sekhri has done his Bachelor of Business Administration(BBA) from Richmond College, London(UK). He is promotor director of the company "Tinna Trade Ltd" and currently heading the TINNA group as the Managing Director. Mr. Gaurav Sekhri has experience of over 22 years in Trading business. He possesses key expertise in the business of commodity trading and other business verticals, including cargo handling operations & warehousing. He has chaired 'Sunflower Seed Promotion Council of SEA (Solvent Extractors Association) of India' & 'SEA Bio Diesel Promotion Council'. He has been member of with various reputed associations- The Soybean Processors Association of India' (SOPA), 'Confederation of Indian Industry (CII) & National Committee on Agriculture', 'National Committee a Bio Fuels', Confederation of Indian Industry (CII), National Committee on Agriculture.</p>
+                        </div>
+                    </div>
+                    <div class="pro-list">
+                        <div class="pro-img">
+                            <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Adhiraj Amar Sarin">
+                        </div>
+                        <div class="pro-content">
+                            <span class="title">Mr. Adhiraj Amar Sarin</span>
+                            <span class="info">Independent Director</span>
+                            <p>Mr. Adhiraj Sarin has done B. Tech, Electrical and Electronics Engineering from IIT Kanpur. He has vast experience in commodity business. He has been Managing Director in 'Bunge India', Specialty Engineering Company 'Tube Investments Of India', 'Bombay Dyeing Textiles' & 'Hindustan Lever Limited'. He was CEO of Louis Dreyfus Commodities India. He is currently working as Corporate advisor with 'Master & Little'.</p>
+                        </div>
+                    </div>
+                    <div class="pro-list">
+                        <div class="pro-img">
+                            <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Ashish Madan">
+                        </div>
+                        <div class="pro-content">
+                            <span class="title">Mr. Ashish Madan</span>
+                            <span class="info">Independent Director</span>
+                            <p>Mr. Ashish Madan has done B.A. Eco (H), MFC, (University of Delhi). He has about 20 years' experience in trade finance. He is member of Managing Committee of Adam Smith Associates Pvt. Ltd. He has previously worked with Esanda Finance (ANZ Banking Group), and Batlivala & Karani.</p>
+                        </div>
+                    </div>
+                    <div class="pro-list">
+                        <div class="pro-img">
+                            <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="MS. Sanvali Kaushik">
+                        </div>
+                        <div class="pro-content">
+                            <span class="title">MS. Sanvali Kaushik</span>
+                            <span class="info">Independent Director</span>
+                            <p>Ms. Sanvali Kaushik is a post graduate in marketing and financial management and has more than 20 years of experience in commodity physical trade and derivatives in India. Ms.Kaushik was the CEO of NCDEX Spot Exchange Ltd. She has been part of the FICCI study group of Terminal Markets of USA and studied the US models of agri business and capacity building by USAID. She has also been part of the various committees for commodity grading, assaying and Forward Markets Commission and the Government of India on various commodity derivates related issues. She has also been part of the Technical Group that led the FCI and Government of India to hedge for the first time on CBOT.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Offcanvas - Board Composition E -->
+
+        <!-- Offcanvas - Management Profile S -->
+        <div class="offcanvas offcanvas-bottom offcanvas-lg" tabindex="-1" id="ManagementProfileOffoffcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Management Profiles</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+                <div class="profile-main">
+                    <div class="pro-list">
+                        <div class="pro-img">
+                            <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Gaurav Sekhri">
+                        </div>
+                        <div class="pro-content">
+                            <span class="title">Mr. Gaurav Sekhri</span>
+                            <span class="info">Chairman and Managing Director</span>
+                            <p>Mr. Gaurav Sekhri has done his Bachelor of Business Administration(BBA) from Richmond College, London(UK). He is promotor director of the company "Tinna Trade Ltd" and currently heading the TINNA group as the Managing Director. Mr. Gaurav Sekhri has experience of over 22 years in Trading business. He possesses key expertise in the business of commodity trading and other business verticals, including cargo handling operations & warehousing. He has chaired 'Sunflower Seed Promotion Council of SEA (Solvent Extractors Association) of India' & 'SEA Bio Diesel Promotion Council'. He has been member of with various reputed associations- The Soybean Processors Association of India' (SOPA), 'Confederation of Indian Industry (CII) & National Committee on Agriculture', 'National Committee a Bio Fuels', Confederation of Indian Industry (CII), National Committee on Agriculture.</p>
+                        </div>
+                    </div>
+                    <div class="pro-list">
+                        <div class="pro-img">
+                            <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Adhiraj Amar Sarin">
+                        </div>
+                        <div class="pro-content">
+                            <span class="title">Mr. Adhiraj Amar Sarin</span>
+                            <span class="info">Independent Director</span>
+                            <p>Mr. Adhiraj Sarin has done B. Tech, Electrical and Electronics Engineering from IIT Kanpur. He has vast experience in commodity business. He has been Managing Director in 'Bunge India', Specialty Engineering Company 'Tube Investments Of India', 'Bombay Dyeing Textiles' & 'Hindustan Lever Limited'. He was CEO of Louis Dreyfus Commodities India. He is currently working as Corporate advisor with 'Master & Little'.</p>
+                        </div>
+                    </div>
+                    <div class="pro-list">
+                        <div class="pro-img">
+                            <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="Mr. Ashish Madan">
+                        </div>
+                        <div class="pro-content">
+                            <span class="title">Mr. Ashish Madan</span>
+                            <span class="info">Independent Director</span>
+                            <p>Mr. Ashish Madan has done B.A. Eco (H), MFC, (University of Delhi). He has about 20 years' experience in trade finance. He is member of Managing Committee of Adam Smith Associates Pvt. Ltd. He has previously worked with Esanda Finance (ANZ Banking Group), and Batlivala & Karani.</p>
+                        </div>
+                    </div>
+                    <div class="pro-list">
+                        <div class="pro-img">
+                            <img src="https://w7.pngwing.com/pngs/1000/665/png-transparent-computer-icons-profile-s-free-angle-sphere-profile-cliparts-free-thumbnail.png" alt="MS. Sanvali Kaushik">
+                        </div>
+                        <div class="pro-content">
+                            <span class="title">MS. Sanvali Kaushik</span>
+                            <span class="info">Independent Director</span>
+                            <p>Ms. Sanvali Kaushik is a post graduate in marketing and financial management and has more than 20 years of experience in commodity physical trade and derivatives in India. Ms.Kaushik was the CEO of NCDEX Spot Exchange Ltd. She has been part of the FICCI study group of Terminal Markets of USA and studied the US models of agri business and capacity building by USAID. She has also been part of the various committees for commodity grading, assaying and Forward Markets Commission and the Government of India on various commodity derivates related issues. She has also been part of the Technical Group that led the FCI and Government of India to hedge for the first time on CBOT.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Offcanvas - Management Profile E -->
 
         <!-- Offcanvas - Media S -->
         <div class="offcanvas offcanvas-bottom offcanvas-lg" tabindex="-1" id="MediaoffcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">

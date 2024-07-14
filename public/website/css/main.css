@@ -800,4 +800,79 @@
     .offcanvas-header + .offcanvas-body {
         padding-top: 0;
     }
+    .offcanvas-title {
+        font-size: 18px;
+    }
 /* Offcanvas E */
+
+/* Board Composition Modal S */
+    .profile-main .pro-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .profile-main .pro-img {
+        width: 80px;
+        height: 80px;
+        margin-right: 20px;
+        margin-top: 20px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .profile-main .pro-img img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .profile-main .pro-content {
+        padding: 20px 0;
+        width: calc(100% - 100px);
+    }
+    .profile-main .pro-list + .pro-list .pro-content {
+        border-top: 1px solid rgb(110 109 109 / 50%);
+    }
+    .profile-main .pro-content span {
+        display: block;
+        color: #000;
+    }
+    .profile-main .pro-content .title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .profile-main .pro-content .info {
+        font-size: 16px;
+        margin-bottom: 5px;
+        line-height: normal;
+    }
+    .boardCompositionModal .modal-content .modal-body {
+        max-height: calc(100vh - 140px);
+        overflow-y: auto;
+    }
+    @media (max-width:575.98px) {
+        .boardCompositionModal.modal {
+            padding-right: 0px !important;
+        }
+        .boardCompositionModal .modal-dialog {
+            margin: 0;
+            border-radius: 0;
+        }
+        .boardCompositionModal .modal-content, .boardCompositionModal .modal-body {
+            border-radius: 0px;
+        }
+        .boardCompositionModal .modal-body {
+            max-height: unset;
+            height: calc(100vh - 80px);
+        }
+        .profile-main .pro-img {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+        .profile-main .pro-content {
+            width: calc(100% - 75px);
+        }
+        .profile-main .pro-content .title {
+            font-size: 18px;
+        }
+    }
+/* Board Composition Modal E */

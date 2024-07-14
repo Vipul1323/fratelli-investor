@@ -7,7 +7,9 @@ use App\Models\SiteSettings;
 use Illuminate\Http\Request;
 use App\Models\TradeData;
 use App\Models\Category;
+use App\Models\ApiLog;
 use App\Models\Media;
+use Log;
 
 class WebsiteController extends Controller
 {
@@ -17,7 +19,23 @@ class WebsiteController extends Controller
         $siteSetting = SiteSettings::select('youtube_video_link')->first()->toArray();
         $breadCrumbsArray = [];
 
+        if($request->has('code')){
+            $siteSetting = SiteSettings::first();
+            $siteSetting->upstocks_code = $request->get('code');
+            $siteSetting->save();
+
+            ApiLog::getUpstocksToken();
+        }
+
         return view('website.index', compact('folders', 'breadCrumbsArray', 'settings', 'siteSetting'));
+    }
+
+    public function storeApiCode(Request $request){
+        $siteSetting = SiteSettings::first();
+        $siteSetting->upstocks_code = $request->get('code');
+        $siteSetting->save();
+
+        return redirect('/');
     }
 
     public function showAllFolders(Request $request){
@@ -42,13 +60,17 @@ class WebsiteController extends Controller
     }
 
     public function getStockData(Request $request){
-        $tradeData = TradeData::where('symbol', 'TINNATFL.XBOM')->get();
+        $tradeData = TradeData::where('symbol', 'TINNATFL')->orderBy('date_on', 'asc')->get();
 
         $tradeDataArray = [];
         foreach($tradeData as $trade){
             $tradeDataArray[] = [
-                $trade->date_on,
-                $trade->open
+                'Date' => strtotime($trade->date_on) * 1000,
+                'Open' => doubleval($trade->open),
+                'High' => doubleval($trade->high),
+                'Low' => doubleval($trade->low),
+                'Close' => doubleval($trade->close),
+                'Volume' => doubleval($trade->volume),
             ];
         }
 
@@ -56,12 +78,20 @@ class WebsiteController extends Controller
     }
 
     public function getStockSticker(Request $request){
-        $tinatrade = TradeData::where('symbol', 'TINNATFL.XBOM')->orderBy('date_on', 'desc')->limit(1)->first();
-        $bsetrade = TradeData::where('symbol', 'BSE.XNSE')->orderBy('date_on', 'desc')->limit(1)->first();
+        $tinatrade = TradeData::where('symbol', 'TINNATFL')->orderBy('date_on', 'desc')->limit(1)->first();
+        $tinatradeYesterday = TradeData::where('symbol', 'TINNATFL')->whereDate('date_on', '<', date('Y-m-d', strtotime($tinatrade->date_on)))->orderBy('date_on', 'desc')->limit(1)->first();
+        $bsetrade = TradeData::where('symbol', 'BSE')->orderBy('date_on', 'desc')->limit(1)->first();
+        $bsetradeYesterday = TradeData::where('symbol', 'BSE')->whereDate('date_on', '<', date('Y-m-d', strtotime($bsetrade->date_on)))->orderBy('date_on', 'desc')->limit(1)->first();
 
-        $tinnaCurrentRate = $tinatrade->close;
-        $tinnaPreviousRate = $tinatrade->open;
-        $tinnaRateDiff = $tinnaCurrentRate - $tinnaPreviousRate;
+        Log::info("tinatrade => ".json_encode($tinatrade));
+        Log::info("tinatradeYesterday => ".json_encode($tinatradeYesterday));
+        Log::info("bsetrade => ".json_encode($bsetrade));
+        Log::info("bsetradeYesterday => ".json_encode($bsetradeYesterday));
+
+        $tinnaCurrentRate = floatval($tinatrade->close);
+        $tinnaPreviousRate = floatval($tinatrade->open);
+        $tinnaRateDiff = floatval($tinnaCurrentRate - $tinnaPreviousRate);
+        $tinnaRateDiff = floatval($tinatrade->net_change);
 
         if($tinnaRateDiff > 0){
             $tinnaDirection = 'up';
@@ -69,11 +99,12 @@ class WebsiteController extends Controller
             $tinnaDirection = 'down';
         }
         $tinnaRateDiff = floatval($tinnaRateDiff);
-        $tinnaRatePercentage = ($tinnaRateDiff * 100) / $tinatrade->open;
+        $tinnaRatePercentage = ($tinnaRateDiff * 100) / floatval($tinatradeYesterday->close);
 
-        $bseCurrentRate = $bsetrade->close;
-        $bsePreviousRate = $bsetrade->open;
-        $bseRateDiff = $bseCurrentRate - $bsePreviousRate;
+        $bseCurrentRate = floatval($bsetrade->close);
+        $bsePreviousRate = floatval($bsetrade->open);
+        $bseRateDiff = floatval($bseCurrentRate - $bsePreviousRate);
+        $bseRateDiff = floatval($bsetrade->net_change);
 
         if($bseRateDiff > 0){
             $bseDirection = 'up';
@@ -81,21 +112,21 @@ class WebsiteController extends Controller
             $bseDirection = 'down';
         }
         $bseRateDiff = floatval($bseRateDiff);
-        $bseRatePercentage = ($bseRateDiff * 100) / $bsetrade->open;
+        $bseRatePercentage = ($bseRateDiff * 100) / floatval($bsetradeYesterday->close);
 
         $tradeDataArray = [
             'tinna' => [
                 'stock_name' => $tinatrade->symbol,
-                'current_rate' => $tinatrade->close,
-                'open' =>  $tinatrade->open,
+                'current_rate' => floatval($tinatrade->close),
+                'open' =>  floatval($tinatrade->open),
                 'rate_diff' => number_format($tinnaRateDiff, 2),
                 'direction' => $tinnaDirection,
                 'ratePercentage' => number_format($tinnaRatePercentage, 2)
             ],
             'bse' => [
                 'stock_name' => $bsetrade->symbol,
-                'current_rate' => $bsetrade->close,
-                'open' =>  $bsetrade->open,
+                'current_rate' => floatval($bsetrade->close),
+                'open' =>  floatval($bsetrade->open),
                 'rate_diff' => number_format($bseRateDiff, 2),
                 'direction' => $bseDirection,
                 'ratePercentage' => number_format($bseRatePercentage, 2)

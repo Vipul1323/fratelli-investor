@@ -47,6 +47,8 @@ class SiteSettings extends Model
         'marketstack_endpoint',
         'api_call_per_minute',
         'youtube_video_link',
+        'upstocks_code',
+        'upstocks_token',
         'created_at',
         'updated_at',
     ];
@@ -59,6 +61,8 @@ class SiteSettings extends Model
         'mail_password',
         'mail_encryption',
         'marketstack_key',
+        'upstocks_code',
+        'upstocks_token',
         'marketstack_endpoint',
         'api_call_per_minute',
     ];

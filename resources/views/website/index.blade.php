@@ -7,14 +7,14 @@
         <div class="title-sc mb-0">
             <div class="title-flex hidden-xl hidden-lg hidden-md" style="display: block !important; text-align:center !important;">
                 <h2 style="margin: 10px;" href="javascript:void(0)" class="btn-link hidden-xl hidden-lg hidden-md" data-bs-toggle="offcanvas" data-bs-target="#WhoWeAreOffoffcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">{{ $settings->title }}</h2>
-                <h2 style="margin: 10px;" href="javascript:void(0)" class="btn-link hidden-xl hidden-lg hidden-md" data-bs-toggle="offcanvas" data-bs-target="#WhoWeAreOffoffcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Board Composition</h2>
-                <h2 style="margin: 10px;" href="javascript:void(0)" class="btn-link hidden-xl hidden-lg hidden-md" data-bs-toggle="offcanvas" data-bs-target="#WhoWeAreOffoffcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Management Profiles</h2>
+                <h2 style="margin: 10px;" href="javascript:void(0)" class="btn-link hidden-xl hidden-lg hidden-md" data-bs-toggle="offcanvas" data-bs-target="#boardCompositionWithBackdrop" aria-controls="offcanvasWithBackdrop">Board Composition</h2>
+                <h2 style="margin: 10px;" href="javascript:void(0)" class="btn-link hidden-xl hidden-lg hidden-md" data-bs-toggle="offcanvas" data-bs-target="#ManagementProfileOffoffcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Management Profiles</h2>
 
             </div>
             <div class="title-flex hidden-sm hidden-xs">
                 <h2 href="javascript:void(0)" class="btn-link hidden-sm hidden-xs" data-bs-toggle="modal" data-bs-target="#whoWeAreModal">{{ $settings->title }}</h2>
-                <h2 href="javascript:void(0)" class="btn-link hidden-sm hidden-xs" data-bs-toggle="modal" data-bs-target="#whoWeAreModal">Board Composition</h2>
-                <h2 href="javascript:void(0)" class="btn-link hidden-sm hidden-xs" data-bs-toggle="modal" data-bs-target="#whoWeAreModal">Management Profiles</h2>
+                <h2 href="javascript:void(0)" class="btn-link hidden-sm hidden-xs" data-bs-toggle="modal" data-bs-target="#boardCompositionModal">Board Composition</h2>
+                <h2 href="javascript:void(0)" class="btn-link hidden-sm hidden-xs" data-bs-toggle="modal" data-bs-target="#managementProfileModal">Management Profiles</h2>
 
             </div>
             {{-- <p>As the sun set on a warm afternoon in 2006, the seeds of a new dream bloomed to life - <b>Fratelli</b>. Brought together by love and driven forward by passion, <b>Fratelli</b> is symbolic of a vision manifested by three families who aspired to tell stories through the art of winemaking...</p>
@@ -38,7 +38,7 @@
     <div class="container">
         <div class="title-sc">
             <div class="title-flex">
-                <h2 class="main-title">Folders</h2>
+                <h2 class="main-title">Investor Documents</h2>
                 <a href="{{ url('folders') }}" class="btn-link">See all</a>
             </div>
         </div>
@@ -62,7 +62,7 @@
     <div class="container">
         <div class="title-sc">
             <div class="title-flex">
-                <h2 class="main-title">Folders</h2>
+                <h2 class="main-title">Investor Documents</h2>
                 <a href="{{ url('folders') }}" class="btn-link">See all</a>
             </div>
         </div>
@@ -121,7 +121,8 @@
                         </div>
                     </div> --}}
                 </div>
-                <div id="stock_sticker"></div>
+                <div id="chartcontrols"></div>
+                <div id="stockChart" style="min-height: 350px;"></div>
                 <p class="stock-bottom-text">(Based on NSE Data)</p>
             </div>
             <div class="col-lg-6 video-col">
@@ -142,7 +143,10 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/stock.js"></script>
+
 <script>
     var data;
     $('.about_us_more').hide();
@@ -162,7 +166,7 @@
         var intervalId = window.setInterval(function(){
             getStockSticker();
             //getStockData();
-        }, 1000);
+        }, 60000);
     });
 
     function getStockSticker(){
@@ -172,65 +176,92 @@
     }
 
     function getStockData(){
-            $.post('{{ route("stock-data") }}', {}, function(response){
-                data = response;
+        $.post('{{ route("stock-data") }}', {}, function(response){
+            data = response;
 
-                loadChart();
-            });
-        }
+            loadChart();
+        });
+    }
 
-        function loadChart(){
-            var options = {
-                series: [{
-                    name: 'TINNATFL',
-                    data: data
-                }],
-                chart: {
-                    type: 'area',
-                    stacked: false,
-                    height: 350,
-                    zoom: {
-                        type: 'x',
-                        enabled: true,
-                        autoScaleYaxis: true
-                    },
-                    toolbar: {
-                        autoselected: 'zoom',
-                        show: true,
-                        tools: {
-                            download: false,
-                            selection: true,
-                            zoom: true,
-                            zoomin: true,
-                            zoomout: true,
-                            pan: false,
-                            reset: true | '<img src="/static/icons/reset.png" width="20">',
-                        }
-                    }
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                markers: {
-                    size: 0,
-                },
-                fill: {
-                    type: 'gradient',
-                    gradient: {
-                        shadeIntensity: 1,
-                        inverseColors: false,
-                        opacityFrom: 0,
-                        opacityTo: 0,
-                        stops: [0, 90, 100]
-                    },
-                },
-                xaxis: {
-                    type: 'datetime',
-                },
-            };
+    function loadChart(){
+        var root = am5.Root.new("stockChart");
+        var stockChart = root.container.children.push(am5stock.StockChart.new(root, {}));
 
-            var chart = new ApexCharts(document.querySelector("#stock_sticker"), options);
-            chart.render();
-        }
+        var mainPanel = stockChart.panels.push(am5stock.StockPanel.new(root, {
+            wheelY: "zoomX",
+            panX: true,
+            panY: true,
+            height: am5.percent(30),
+            wheelZoomPositionX: null
+        }));
+
+        var valueAxis = mainPanel.yAxes.push(am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererY.new(root, {}),
+        }));
+
+        var dateAxis = mainPanel.xAxes.push(am5xy.DateAxis.new(root, {
+            baseInterval: {
+                timeUnit: "day",
+                count: 1
+            },
+            renderer: am5xy.AxisRendererX.new(root, {})
+        }));
+
+        var valueSeries = mainPanel.series.push(am5xy.LineSeries.new(root, {
+            name: "TINNATF",
+            valueXField: "Date",
+            valueYField: "Close",
+            xAxis: dateAxis,
+            yAxis: valueAxis,
+            tooltip: am5.Tooltip.new(root, {
+                labelText: "{valueY}",
+            }),
+            legendValueText: "{valueY}"
+        }));
+
+        valueSeries.data.setAll(data);
+
+        stockChart.set("stockSeries", valueSeries);
+
+        var valueLegend = mainPanel.plotContainer.children.push(am5stock.StockLegend.new(root, {
+            stockChart: stockChart
+        }));
+        valueLegend.data.setAll([valueSeries]);
+
+        mainPanel.set("cursor", am5xy.XYCursor.new(root, {
+            yAxis: valueAxis,
+            xAxis: dateAxis,
+            snapToSeries: [valueSeries],
+            snapToSeriesBy: "y",
+            behavior: "zoomX"
+        }));
+
+
+
+        var toolbar = am5stock.StockToolbar.new(root, {
+            container: document.getElementById("chartcontrols"),
+            stockChart: stockChart,
+            controls: [
+                am5stock.PeriodSelector.new(root, {
+                    stockChart: stockChart,
+                    zoomTo: "end",
+                    periods: [
+                        { timeUnit: "day", count: 1, name: "1D" },
+                        { timeUnit: "day", count: 5, name: "5D" },
+                        { timeUnit: "month", count: 1, name: "1M" },
+                        { timeUnit: "month", count: 6, name: "6M" },
+                        { timeUnit: "year", count: 1, name: "1Y" },
+                        { timeUnit: "year", count: 2, name: "2Y" },
+                        { timeUnit: "year", count: 5, name: "5Y" },
+                        { timeUnit: "max", name: "Max" },
+                    ]
+                }),
+                // am5stock.ResetControl.new(root, {
+                //     stockChart: stockChart
+                // }),
+            ]
+        })
+
+    }
 </script>
 @endsection
